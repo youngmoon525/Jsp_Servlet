@@ -1,0 +1,37 @@
+<%@page import="com.hanul.study.MemberDTO"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%
+request.setCharacterEncoding("utf-8");
+String name = request.getParameter("name");
+String id = request.getParameter("id");
+String pw = request.getParameter("pw");
+int age = Integer.parseInt(request.getParameter("age"));
+String addr = request.getParameter("addr");
+String tel = request.getParameter("tel");
+MemberDTO dto = new MemberDTO(name, id, pw, age, addr, tel);
+%>
+
+<jsp:useBean id="actionDTO" class="com.hanul.study.MemberDTO">
+	<jsp:setProperty property="*" name="actionDTO"/>
+</jsp:useBean>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JSP17</title>
+</head>
+<body>
+○ 이름(JAVA Variable) : <%=name %><br/>
+○ 이름(JAVA dto) : <%=dto.getName() %><br/>
+○ 이름(JAVA actionDTO) : <%=actionDTO.getName() %><br/>
+</body>
+</html>
+
+
+
+
+
+
+

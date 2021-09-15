@@ -1,0 +1,16 @@
+<%@page import="com.hanul.study.BookDAO"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%
+BookDAO dao = new BookDAO();
+dao.getBookListJson();
+%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ISBN List JSP</title>
+</head>
+<body>
+
+</body>
+</html>

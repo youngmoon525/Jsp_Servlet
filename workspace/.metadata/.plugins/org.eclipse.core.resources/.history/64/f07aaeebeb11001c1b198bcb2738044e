@@ -1,0 +1,70 @@
+package com.hanul.study;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+public class BookDAO {
+	private Connection conn;	//연결객체
+	private PreparedStatement ps; //전송객체
+	private ResultSet rs;	//결과객체
+	
+	//DB접속
+	public Connection getConn() {
+		String url = "jdbc:oracle:thin:@127.0.0.1:1521:XE";
+		String user = "hanul";
+		String password = "0000";
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");	//동적로딩
+			conn = DriverManager.getConnection(url, user, password);
+		} catch (Exception e) {
+			e.printStackTrace();	//예외발생의 원인을 상세하게 출력
+			System.out.println("getConn() Exception!!!");
+		}
+		return conn;
+	}//getConn()
+	
+	//DB접속 해제
+	public void dbClose() {
+		try {
+			if(rs != null) rs.close();
+			if(ps != null) ps.close();
+			if(conn != null) conn.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}//dbClose()
+	
+	//도서정보 등록
+	public int inserBook(BookDTO dto) {
+		conn = getConn();
+		String sql = "insert into tblBook values(?,?,?,?,?,?,?)";
+		int succ = 0;
+		try {
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, dto.getTitle());
+			ps.setString(2, dto.getName());
+			ps.setString(3, dto.getIsbn());
+			ps.setString(4, dto.getCompany());
+			ps.setInt(5, dto.getCost());
+			ps.setInt(6, dto.getQty());
+			ps.setInt(7, dto.getCost() * dto.getQty());
+			succ = ps.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("inserBook() Exception!!!");
+		} finally {
+			dbClose();
+		}
+		return succ;
+	}//inserBook()
+	
+	
+	
+	
+	
+	
+	
+	
+}//class

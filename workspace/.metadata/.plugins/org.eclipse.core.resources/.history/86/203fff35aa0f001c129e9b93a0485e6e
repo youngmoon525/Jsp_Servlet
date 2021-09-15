@@ -1,0 +1,21 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%
+int sum = 0;
+for(int i = 1; i <= 100; i++){
+	sum += i;
+}
+
+//sum 결과값을 현재 페이지에 출력 : EL 문법(표현식)을 사용하기 위해 바인딩 객체 생성
+pageContext.setAttribute("sum", sum);
+%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JSP21</title>
+</head>
+<body>
+○ JAVA 출력 : <%=sum %><br/>
+○ EL 출력 : ${sum }
+</body>
+</html>

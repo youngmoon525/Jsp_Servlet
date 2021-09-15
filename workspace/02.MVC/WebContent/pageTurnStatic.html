@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Page Turn Static</title>
+<script type="text/javascript">
+function fnGo(){
+	var id = "kim";
+	var pw = "0000";
+	location.href = "page.do?id=" + id + "&pw=" + pw;
+}
+</script>
+</head>
+<body>
+<h3>[정적 페이지 전환]</h3>
+- 현재 페이지(pageTurnStatic.html)에서 회원 1명의 정보(id, pw)를<br/>
+PageServlet.java(page.do)으로 넘기시오.<br/>
+
+<form action="page.do" method="get">
+ID : <input type="text" name="id" required="required"/><br/>
+PW : <input type="password" name="pw" required="required"/><br/>
+<input type="submit" value="페이지 전환A"/>
+</form>
+<br/><br/>
+
+<a href="page.do?id=hanul&pw=1234">페이지 전환B</a>
+<br/><br/>
+
+<button onclick="fnGo()">페이지 전환C</button>
+<br/><br/>
+
+<input type="button" value="페이지 전환D"
+	onclick="location.href='page.do?id=hanul&pw=0000'"/>
+
+</body>
+</html>

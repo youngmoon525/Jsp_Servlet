@@ -1,0 +1,75 @@
+package dao;
+
+import java.io.InputStream;
+import java.util.HashMap;
+import java.util.List;
+
+import org.apache.ibatis.io.Resources;
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+
+import dto.BookVO;
+import dto.MemberVO;
+
+public class MybatisDAO {
+	//기존 JDBC lib Connection(연결객체) 를 먼저 만들었지만.
+	//Mybatis의 경우에는 SqlSessionFactory를 이용해서 session을 오픈해서 사용한다.
+	//Connection conn == SqlSessionFactory sqlMapper ;
+	private static SqlSessionFactory sqlMapper;
+	static {
+		String resource = "data/SqlMapConfig.xml"; //user, url , driver => resource
+		try {
+			InputStream inputStream = Resources.getResourceAsStream(resource);
+			sqlMapper = new SqlSessionFactoryBuilder().build(inputStream);
+			//SqlMpper ( SqlSessionFactory 초기화 )
+		}catch (Exception e) {
+			// TODO: handle exception
+		}
+	}//static(초기화블럭)
+	
+	public void selectOne() {
+		//SqlSessionFactory를 이용하여 Session이라는 객체를 open시키고 Session객체를 이용하여
+		//sql문을 실행한다 (실행할 sql문은 mapper에 미리 정의 되어있어야만 한다.)
+		SqlSession session = sqlMapper.openSession();
+		//nameSpace + id
+		int result = session.selectOne("test.selectone");
+		//selectone은 단 한건의 결과만 가지고 온다.
+		String pram = "adgagd";
+		String result2 = session.selectOne("test.selectone2", pram);
+		System.out.println(result);
+		System.out.println(result2);
+		
+		HashMap<String, String> dto = new HashMap<>();
+		dto.put("a", "aaaaa");
+		dto.put("b", "bbbcc");
+		dto.put("c", "cccdd");
+		
+		String result3 = session.selectOne("test.selectone3",dto);
+		System.out.println(result3);
+	}
+
+	public void selectList() {
+		//전송/결과 객체				//연결객체
+		SqlSession session = sqlMapper.openSession();
+		
+		List<BookVO> list =	session.selectList("test.selectlist");
+		for (BookVO bookVO : list) {
+			System.out.println(bookVO.getName());
+			System.out.println(bookVO.getTitle());
+		}
+	}
+
+	public void memberselect() {
+		// TODO Auto-generated method stub
+	SqlSession session = sqlMapper.openSession();
+		
+		List<MemberVO> list =	session.selectList("test.memberlist");
+		for (MemberVO bookVO : list) {
+			System.out.println(bookVO.getName());
+			System.out.println(bookVO.getTitle());
+		}
+	}
+}
+
+

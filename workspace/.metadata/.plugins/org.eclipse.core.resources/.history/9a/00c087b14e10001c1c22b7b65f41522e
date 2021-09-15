@@ -1,0 +1,20 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%-- JSTL core 문을 사용하기 위해서는 반드시 문서 상단에 기술 --%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JSP29</title>
+</head>
+<body>
+1. 기본프로그래밍 Tag : 변수, if, for, 배열 등 ▶ core<br/>
+<%
+int num1 = 100;
+%>
+JAVA num1 : <%=num1 %><br/>
+
+<%-- JSTL 변수 선언 및 초기화 : <c:set ~~> --%>
+
+</body>
+</html>

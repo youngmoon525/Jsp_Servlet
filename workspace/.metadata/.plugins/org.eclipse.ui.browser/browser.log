@@ -1,0 +1,67 @@
+
+8월 24, 2021 09:55:55.17 NEW SESSION
+8월 24, 2021 09:55:55.17 [2872:7564:0824/095555.171:ERROR:device_event_log_impl.cc(214)] [09:55:55.170] Bluetooth: bluetooth_adapter_winrt.cc:1073 Getting Default Adapter failed.
+8월 24, 2021 10:23:29.68 [2872:7564:0824/102329.683:ERROR:device_event_log_impl.cc(214)] [10:23:29.683] USB: usb_service_win.cc:258 Failed to get device driver name: 요소가 없습니다. (0x490)
+8월 24, 2021 10:23:30.75 [2872:7564:0824/102330.752:ERROR:device_event_log_impl.cc(214)] [10:23:30.752] USB: usb_service_win.cc:281 SetupDiEnumDeviceInterfaces: 사용 가능한 데이터가 없습니다. (0x103)
+8월 24, 2021 10:23:30.75 [2872:7564:0824/102330.754:ERROR:device_event_log_impl.cc(214)] [10:23:30.753] USB: usb_service_win.cc:258 Failed to get device driver name: 요소가 없습니다. (0x490)
+
+8월 25, 2021 09:42:30.98 NEW SESSION
+8월 25, 2021 09:42:30.98 [5944:13792:0825/094230.988:ERROR:device_event_log_impl.cc(214)] [09:42:30.988] Bluetooth: bluetooth_adapter_winrt.cc:1073 Getting Default Adapter failed.
+8월 25, 2021 10:25:28.34 [5944:13792:0825/102528.341:ERROR:device_event_log_impl.cc(214)] [10:25:28.341] Bluetooth: bluetooth_adapter_winrt.cc:1073 Getting Default Adapter failed.
+8월 25, 2021 10:25:29.06 [5944:13792:0825/102529.069:ERROR:web_contents_delegate.cc(225)] WebContentsDelegate::CheckMediaAccessPermission: Not supported.
+8월 25, 2021 10:25:29.07 [5944:13792:0825/102529.069:ERROR:web_contents_delegate.cc(225)] WebContentsDelegate::CheckMediaAccessPermission: Not supported.
+8월 25, 2021 10:25:44.07 [5944:13792:0825/102544.076:ERROR:web_contents_delegate.cc(225)] WebContentsDelegate::CheckMediaAccessPermission: Not supported.
+8월 25, 2021 10:25:44.07 [5944:13792:0825/102544.076:ERROR:web_contents_delegate.cc(225)] WebContentsDelegate::CheckMediaAccessPermission: Not supported.
+
+8월 26, 2021 09:40:57.16 NEW SESSION
+8월 26, 2021 09:40:57.16 [252:6492:0826/094057.163:ERROR:device_event_log_impl.cc(214)] [09:40:57.163] Bluetooth: bluetooth_adapter_winrt.cc:1073 Getting Default Adapter failed.
+
+8월 27, 2021 11:51:35.50 NEW SESSION
+8월 27, 2021 11:51:35.50 [9244:13784:0827/115135.501:ERROR:device_event_log_impl.cc(214)] [11:51:35.501] Bluetooth: bluetooth_adapter_winrt.cc:1073 Getting Default Adapter failed.
+8월 27, 2021 12:00:25.99 [9244:13784:0827/120025.996:ERROR:device_event_log_impl.cc(214)] [12:00:25.996] Bluetooth: bluetooth_adapter_winrt.cc:1073 Getting Default Adapter failed.
+8월 27, 2021 12:00:26.52 [9244:13784:0827/120026.528:ERROR:web_contents_delegate.cc(225)] WebContentsDelegate::CheckMediaAccessPermission: Not supported.
+8월 27, 2021 12:00:26.52 [9244:13784:0827/120026.528:ERROR:web_contents_delegate.cc(225)] WebContentsDelegate::CheckMediaAccessPermission: Not supported.
+8월 27, 2021 12:00:38.30 [9244:13784:0827/120038.301:ERROR:web_contents_delegate.cc(225)] WebContentsDelegate::CheckMediaAccessPermission: Not supported.
+8월 27, 2021 12:00:38.30 [9244:13784:0827/120038.301:ERROR:web_contents_delegate.cc(225)] WebContentsDelegate::CheckMediaAccessPermission: Not supported.
+8월 27, 2021 12:24:06.34 [3076:1064:0827/122406.343:ERROR:device_event_log_impl.cc(214)] [12:24:06.343] Bluetooth: bluetooth_adapter_winrt.cc:1073 Getting Default Adapter failed.
+
+8월 30, 2021 09:36:26.88 NEW SESSION
+8월 30, 2021 09:36:26.88 [12972:2228:0830/093626.879:ERROR:device_event_log_impl.cc(214)] [09:36:26.879] Bluetooth: bluetooth_adapter_winrt.cc:1073 Getting Default Adapter failed.
+8월 30, 2021 12:11:24.63 [12972:2228:0830/121124.632:ERROR:device_event_log_impl.cc(214)] [12:11:24.637] USB: usb_service_win.cc:258 Failed to get device driver name: 요소가 없습니다. (0x490)
+8월 30, 2021 12:11:24.66 [12972:2228:0830/121124.664:ERROR:device_event_log_impl.cc(214)] [12:11:24.673] USB: usb_service_win.cc:281 SetupDiEnumDeviceInterfaces: 사용 가능한 데이터가 없습니다. (0x103)
+8월 30, 2021 12:11:24.77 [12972:2228:0830/121124.773:ERROR:device_event_log_impl.cc(214)] [12:11:24.780] USB: usb_service_win.cc:258 Failed to get device driver name: 요소가 없습니다. (0x490)
+
+8월 31, 2021 10:09:11.80 NEW SESSION
+8월 31, 2021 10:09:11.80 [4956:14240:0831/100911.806:ERROR:device_event_log_impl.cc(214)] [10:09:11.806] Bluetooth: bluetooth_adapter_winrt.cc:1073 Getting Default Adapter failed.
+
+9월 01, 2021 09:35:09.35 NEW SESSION
+9월 01, 2021 09:35:09.35 [10600:13456:0901/093509.352:ERROR:device_event_log_impl.cc(214)] [09:35:09.352] Bluetooth: bluetooth_adapter_winrt.cc:1073 Getting Default Adapter failed.
+
+9월 02, 2021 10:23:37.27 NEW SESSION
+9월 02, 2021 10:23:37.27 [7428:5892:0902/102337.274:ERROR:device_event_log_impl.cc(214)] [10:23:37.274] Bluetooth: bluetooth_adapter_winrt.cc:1073 Getting Default Adapter failed.
+
+9월 06, 2021 09:53:07.82 NEW SESSION
+9월 06, 2021 09:53:07.82 [4544:7208:0906/095307.822:ERROR:device_event_log_impl.cc(214)] [09:53:07.822] Bluetooth: bluetooth_adapter_winrt.cc:1073 Getting Default Adapter failed.
+
+9월 07, 2021 14:22:33.37 NEW SESSION
+9월 07, 2021 14:22:33.37 [7440:6896:0907/142233.377:ERROR:device_event_log_impl.cc(214)] [14:22:33.378] Bluetooth: bluetooth_adapter_winrt.cc:1073 Getting Default Adapter failed.
+9월 07, 2021 14:23:10.52 [7304:3676:0907/142310.522:ERROR:device_event_log_impl.cc(214)] [14:23:10.522] Bluetooth: bluetooth_adapter_winrt.cc:1073 Getting Default Adapter failed.
+
+9월 08, 2021 10:02:13.90 NEW SESSION
+9월 08, 2021 10:02:13.90 [8676:2080:0908/100213.901:ERROR:device_event_log_impl.cc(214)] [10:02:13.902] Bluetooth: bluetooth_adapter_winrt.cc:1073 Getting Default Adapter failed.
+9월 08, 2021 12:23:50.56 [8676:2080:0908/122350.564:ERROR:device_event_log_impl.cc(214)] [12:23:50.566] USB: usb_service_win.cc:258 Failed to get device driver name: 요소가 없습니다. (0x490)
+9월 08, 2021 12:28:59.81 [8676:2080:0908/122859.819:ERROR:device_event_log_impl.cc(214)] [12:28:59.819] USB: usb_service_win.cc:258 Failed to get device driver name: 요소가 없습니다. (0x490)
+9월 08, 2021 12:28:59.84 [8676:2080:0908/122859.847:ERROR:device_event_log_impl.cc(214)] [12:28:59.848] USB: usb_service_win.cc:281 SetupDiEnumDeviceInterfaces: 사용 가능한 데이터가 없습니다. (0x103)
+9월 08, 2021 12:28:59.99 [8676:2080:0908/122859.999:ERROR:device_event_log_impl.cc(214)] [12:28:59.999] USB: usb_service_win.cc:258 Failed to get device driver name: 요소가 없습니다. (0x490)
+
+9월 09, 2021 09:54:00.48 NEW SESSION
+9월 09, 2021 09:54:00.48 [256:4576:0909/095400.487:ERROR:device_event_log_impl.cc(214)] [09:54:00.488] Bluetooth: bluetooth_adapter_winrt.cc:1073 Getting Default Adapter failed.
+
+9월 10, 2021 09:38:58.46 NEW SESSION
+9월 10, 2021 09:38:58.46 [10368:7932:0910/093858.463:ERROR:device_event_log_impl.cc(214)] [09:38:58.463] Bluetooth: bluetooth_adapter_winrt.cc:1073 Getting Default Adapter failed.
+
+9월 13, 2021 11:43:05.51 NEW SESSION
+9월 13, 2021 11:43:05.51 [4604:7148:0913/114305.509:ERROR:device_event_log_impl.cc(214)] [11:43:05.509] Bluetooth: bluetooth_adapter_winrt.cc:1073 Getting Default Adapter failed.
+
+9월 13, 2021 14:25:46.37 NEW SESSION
+9월 13, 2021 14:25:46.37 [7856:9464:0913/142546.370:ERROR:device_event_log_impl.cc(214)] [14:25:46.370] Bluetooth: bluetooth_adapter_winrt.cc:1073 Getting Default Adapter failed.

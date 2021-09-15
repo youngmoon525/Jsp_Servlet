@@ -1,0 +1,17 @@
+<%@page import="com.hanul.study.BookDAO"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%
+String isbn = request.getParameter("isbn");
+BookDAO dao = new BookDAO();
+dao.detailBook(isbn);
+%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Detail JSP</title>
+</head>
+<body>
+
+</body>
+</html>

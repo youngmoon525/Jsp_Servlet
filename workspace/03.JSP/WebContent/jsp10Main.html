@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Member Main</title>
+<script type="text/javascript">
+function fnSubmit(){
+	if(confirm("회원가입을 하시겠습니까?")){
+		return true;
+	}
+	return false;
+}
+
+function fnReset(){
+	var msg = "입력하신 내용이 초기화 됩니다.";
+	msg += "\n계속 진행하시겠습니까?";
+	if(confirm(msg)){
+		return true;
+	}
+	return false;
+}
+
+function fnView(){
+	location.href = "jsp06.jsp";
+}
+</script>
+</head>
+<body>
+<div align="center">
+<h3>[회원가입 입력화면]</h3>
+<form action="jsp10.jsp" method="post" onsubmit="return fnSubmit()" onreset="return fnReset()">
+<table border="1">
+	<tr>
+		<th>이름</th>
+		<td><input type="text" name="name" required="required"/></td>
+	</tr>
+	<tr>
+		<th>아이디</th>
+		<td><input type="text" name="id" required="required"/></td>
+	</tr>
+	<tr>
+		<th>비밀번호</th>
+		<td><input type="password" name="pw" required="required"/></td>
+	</tr>
+	<tr>
+		<th>나이</th>
+		<td><input type="number" name="age" required="required" min="0"/></td>
+	</tr>
+	<tr>
+		<th>주소</th>
+		<td><input type="text" name="addr" required="required"/></td>
+	</tr>
+	<tr>
+		<th>전화번호</th>
+		<td><input type="text" name="tel" required="required"/></td>
+	</tr>
+	<tr>
+		<td colspan="2" align="center">
+			<input type="submit" value="가입하기"/>
+			<input type="reset" value="다시작성"/>
+			<input type="button" value="목록보기" onclick="fnView()"/>
+		</td>
+	</tr>
+</table>
+</form>
+</div>
+</body>
+</html>

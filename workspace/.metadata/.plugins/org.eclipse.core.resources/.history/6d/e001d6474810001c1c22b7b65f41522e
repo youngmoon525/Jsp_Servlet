@@ -1,0 +1,95 @@
+<%@page import="com.hanul.study.MemberDTO"%>
+<%@page import="java.util.ArrayList"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%
+request.setCharacterEncoding("utf-8");
+String[] studyJSP = (String[]) request.getAttribute("study");
+ArrayList<String> listJSP = (ArrayList<String>) request.getAttribute("list");
+MemberDTO dtoJSP = (MemberDTO) request.getAttribute("dto");
+ArrayList<MemberDTO> mlistJSP = (ArrayList<MemberDTO>) request.getAttribute("mlist");
+%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JSP28</title>
+</head>
+<body>
+[배열을 받는 방법(JAVA)-1]<br/>
+<%
+for(int i = 0; i < studyJSP.length; i++){
+	out.println("studyJSP[] 배열의 " + i + "번지(인덱스) 값 : " + studyJSP[i] + "<br/>");
+}
+%>
+<br/>
+
+[배열을 받는 방법(JAVA)-2]<br/>
+<%for(int i = 0; i < studyJSP.length; i++){ %>
+studyJSP[] 배열의 <%=i %>번지(인덱스) 값 : <%=studyJSP[i] %><br/>
+<%}//for %>
+<br/>
+
+[배열을 받는 방법(EL)]<br/>
+study[] 배열의 0번지(인덱스) 값 : ${study[0]}<br/>
+study[] 배열의 1번지(인덱스) 값 : ${study[1]}<br/>
+study[] 배열의 2번지(인덱스) 값 : ${study[2]}<br/>
+study[] 배열의 3번지(인덱스) 값 : ${study[3]}<br/>
+study[] 배열의 4번지(인덱스) 값 : ${study[4]}<br/>
+study[] 배열의 5번지(인덱스) 값 : ${study[5]}<br/>
+study[] 배열의 6번지(인덱스) 값 : ${study[6]}<br/>
+study[] 배열의 7번지(인덱스) 값 : ${study[7]}<br/>
+<br/>
+
+[ArrayList를 받는 방법(JAVA)]<br/>
+<%
+for(int i = 0; i < listJSP.size(); i++){
+	out.println("ArrayList 배열의 " + i + "번지 값 : " + listJSP.get(i) + "<br/>");
+}
+%>
+<br/>
+
+[ArrayList를 받는 방법(EL)]<br/>
+ArrayList 배열의 0번지 값 : ${list[0]}<br/>
+ArrayList 배열의 1번지 값 : ${list[1]}<br/>
+ArrayList 배열의 2번지 값 : ${list[2]}<br/>
+ArrayList 배열의 3번지 값 : ${list[3]}<br/>
+ArrayList 배열의 4번지 값 : ${list[4]}<br/>
+ArrayList 배열의 5번지 값 : ${list[5]}<br/>
+ArrayList 배열의 6번지 값 : ${list[6]}<br/>
+<br/>
+
+[바인딩객체(dto)를 받는 방법(JAVA)]<br/>
+이름 : <%=dtoJSP.getName() %><br/>
+아이디 : <%=dtoJSP.getId() %><br/>
+비밀번호 : <%=dtoJSP.getPw() %><br/>
+나이 : <%=dtoJSP.getAge() %><br/>
+주소 : <%=dtoJSP.getAddr() %><br/>
+전화번호 : <%=dtoJSP.getTel() %><br/>
+<br/>
+
+[바인딩객체(dto)를 받는 방법(EL)]<br/>
+이름 : ${dto.name}<br/>
+아이디 : ${dto.id}<br/>
+비밀번호 : ${dto.pw}<br/>
+나이 : ${dto.age}<br/>
+주소 : ${dto.addr}<br/>
+전화번호 : ${dto.tel}<br/>
+<br/>
+
+[ArrayList 컬렉션 구조에 객체가 저장된 객체배열을 받는 방법(JAVA)]<br/>
+mlistJSP 0번지 값 : <%=mlistJSP.get(0).getName() %>, <%=mlistJSP.get(0).getId() %>, <%=mlistJSP.get(0).getPw() %>, 
+	<%=mlistJSP.get(0).getAge() %>, <%=mlistJSP.get(0).getAddr() %>, <%=mlistJSP.get(0).getTel() %><br/>
+	
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

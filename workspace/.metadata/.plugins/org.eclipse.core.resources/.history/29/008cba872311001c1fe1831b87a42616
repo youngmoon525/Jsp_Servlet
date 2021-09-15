@@ -1,0 +1,32 @@
+<%@page import="java.text.DecimalFormat"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JSP39</title>
+</head>
+<body>
+<c:set var="num" value="123456789"/>
+<h3>숫자포맷 : ${num}</h3>
+○ 형식1 : <fmt:formatNumber value="${num}" groupingUsed="true"/><br/>
+○ 형식2 : <fmt:formatNumber value="${num}" groupingUsed="false"/><br/>
+○ 형식3 : <fmt:formatNumber value="${num}" pattern="#,##0"/><br/>
+<br/><br/>
+
+<h3>기타포맷 : 통화기호, 백분율</h3>
+<%-- 통화기호 : ㄹ → 한자 --%>
+○ 금액1 : <fmt:formatNumber value="${num}" currencySymbol="￦"/><br/>
+
+
+<br/><br/>
+<%
+int number = 123456789;
+DecimalFormat df = new DecimalFormat("#,##0");
+%>
+○ JAVA : <%=number %><br/>
+○ JAVA Format : <%=df.format(number) %>
+</body>
+</html>

@@ -1,0 +1,11 @@
+package dto;
+
+public class BookVO {
+	private String title      ;
+	private String name       ;
+	private String isbn       ;
+	private String company    ;
+	private int cost          ;
+	private int qty           ;
+	private int price         ;
+}

@@ -1,0 +1,56 @@
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.hanul.study.BookDAO;
+import com.hanul.study.BookDTO;
+
+@WebServlet("/list.do")
+public class GetAllListServlet extends HttpServlet {
+	protected void service(HttpServletRequest request, HttpServletResponse response) 
+		throws ServletException, IOException {
+		//클라이언트의 요청 : 전달되는 매개변수 없다.
+		
+		//비지니스 로직
+		BookDAO dao = new BookDAO();
+		ArrayList<BookDTO> list = dao.searchAllBook();
+		
+		//프리젠테이션 로직 : html
+		response.setContentType("text/html; charset=utf8");
+		PrintWriter out = response.getWriter();
+		out.println("<table border='1' align='center'>");
+		out.println("<tr>");
+		out.println("<th>도서명</th>");
+		out.println("<th>저자</th>");
+		out.println("<th>ISBN</th>");
+		out.println("<th>출판사</th>");
+		out.println("<th>단가</th>");
+		out.println("<th>수량</th>");
+		out.println("<th>가격</th>");		
+		out.println("</tr>");
+		
+		if(list.size() == 0) {
+			out.println("<tr><td colspan='7'>등록된 도서정보가 없습니다!</td></tr>");
+		}else {
+			for (BookDTO dto : list) {
+				out.println("<tr align='center'>");
+				out.println("<td>" + dto.getTitle() + "</td>");
+				out.println("<td>" + dto.getName() + "</td>");
+				out.println("<td>" + dto.getIsbn() + "</td>");
+				out.println("<td>" + dto.getCompany() + "</td>");
+				out.println("<td>" + dto.getCost() + "</td>");
+				out.println("<td>" + dto.getQty() + "</td>");
+				out.println("<td>" + dto.getPrice() + "</td>");
+				out.println("</tr>");
+			}
+		}		
+		out.println("</table>");
+		out.println("<a href='bookMain.html'>도서정보 입력하기</a><br/><br/>");
+	}
+}
