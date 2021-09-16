@@ -31,7 +31,6 @@
 				return ;
 			}
 		
-		
 			$.ajax({
 				type : 'post',
 				url : 'iotlogin', /* Controller에서 받을 url주소(mapping)  */
