@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <head>
 <meta charset="utf-8" />
 <meta name="viewport"
@@ -40,13 +40,21 @@
 		<div class="collapse navbar-collapse" id="navbarResponsive">
 			<ul class="navbar-nav ms-auto">
 				<li class="nav-item mx-0 mx-lg-1"><a
-					class="nav-link py-3 px-0 px-lg-3 rounded" href="#portfolio">Portfolio</a></li>
+					class="nav-link py-3 px-0 px-lg-3 rounded" href="port">Portfolio</a></li>
 				<li class="nav-item mx-0 mx-lg-1"><a
 					class="nav-link py-3 px-0 px-lg-3 rounded" href="#about">About</a></li>
 				<li class="nav-item mx-0 mx-lg-1"><a
 					class="nav-link py-3 px-0 px-lg-3 rounded" href="#contact">Contact</a></li>
-				<li class="nav-item mx-0 mx-lg-1"><a
-					class="nav-link py-3 px-0 px-lg-3 rounded" href="login">로그인</a></li>
+				<li class="nav-item mx-0 mx-lg-1">
+				<c:if test="${empty logininfo}">
+				<a class="nav-link py-3 px-0 px-lg-3 rounded" href="login">로그인</a>
+				<a class="nav-link py-3 px-0 px-lg-3 rounded" href="join">회원가입</a>
+				</c:if>
+				<c:if test="${!empty logininfo}">
+					<strong>${logininfo.name}</strong>님 
+					<a class="nav-link py-3 px-0 px-lg-3 rounded" href="logout">로그아웃</a>
+				</c:if>
+				</li>
 			</ul>
 		</div>
 	</div>

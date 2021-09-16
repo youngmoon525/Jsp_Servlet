@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,6 +10,7 @@
 <body>
 	<h3>여기는 로그인 페이지</h3>
 	<%@ include file="/include/header.jsp" %>
+	
 	<div class="container" style="width: 100%; height: 200px; font-size: 30px;margin-top: 10px;">
 		<form action="memberlogin" method="post">
 			<input type="text" id="userid" placeholder="아이디" style="font-size: 33px;">
@@ -16,7 +18,7 @@
 			<a onclick="go_login()" style="background: #00ff00 ; cursor: pointer;"> 로그인 버튼 </a>
 		</form>
 	</div>
-	
+
 	<%@ include file="/include/footer.jsp" %>
 	
 	<script type="text/javascript">
@@ -38,14 +40,15 @@
 					id : $('#userid').val(),
 					pw : $('#userpw').val()
 				},
-				success : function (response) {
-					if(response){
+				success:function (response) {
+					alert(response);
+					if(response == 'true'){
 						//결과가 트루일때는 페이지를 홈으로 간다.
 						//jstl c:test 사용을 해서 index.jsp페이지
 						//의 로그인이라는 글씨를 로그아웃으로 바꿔준다.
-						alert('ㅇㅇㅇ');
+						location.href = 'home';
 					}else{
-						alert('아이디나 비밀번호가 일치하지 않습니다.!');
+						alert('아이디 비번 틀림쓰');
 					}
 				},error : function (req , text) {
 					alert(text + ':' + req.status);

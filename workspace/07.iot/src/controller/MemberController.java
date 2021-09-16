@@ -32,6 +32,10 @@ public class MemberController extends HttpServlet {
 				rd.forward(req, res);
 			}else if(req.getServletPath().equals("/iotlogin")) {
 				login(req,res);
+			}else if(req.getServletPath().equals("/logout")) {
+				HttpSession session = req.getSession();
+				session.removeAttribute("logininfo");
+				res.sendRedirect("home");
 			}
 			
 		
