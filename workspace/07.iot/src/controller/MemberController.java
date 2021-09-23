@@ -21,9 +21,12 @@ import member.MemberVO;
 /**
  * Servlet implementation class MemberController
  */
-@WebServlet(urlPatterns = {    "/login"    , "/iotlogin" , "/logout"        })
+@WebServlet(urlPatterns = {    "/login"    , "/iotlogin" , "/logout" , "/join"       })
 public class MemberController extends HttpServlet {
-
+//login = login.jsp 연결용
+//iotlogin = 실제 db연동 로그인처리용
+//join = join.jsp 회원가입 페이지 연결용
+//
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 			RequestDispatcher rd ;
@@ -36,6 +39,9 @@ public class MemberController extends HttpServlet {
 				HttpSession session = req.getSession();
 				session.removeAttribute("logininfo");
 				res.sendRedirect("home");
+			}else if(req.getServletPath().equals("/join")) {
+				rd = req.getRequestDispatcher("member/join.jsp");
+				rd.forward(req, res);
 			}
 			
 		
