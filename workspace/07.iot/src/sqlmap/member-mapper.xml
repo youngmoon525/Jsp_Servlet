@@ -6,7 +6,9 @@
   <select id="login" resultType="member.MemberVO">
     	select * from jsp_member where id = #{id} and pw = #{pw}
   </select>
-	
+  <select id="id_check" resultType="Integer">
+  	select count(*) from jsp_member where id = #{id}
+  </select>
   <select id="exam" resultType="exam.ExamVO">
   		select * from exam
   </select>

@@ -51,8 +51,9 @@ public class MemberDAO implements MemberService {
 
 	@Override
 	public boolean member_id_check(String id) {
-		// TODO Auto-generated method stub
-		return false;
+		sql = sqlmapper.openSession();
+		return (Integer) sql.selectOne("member.mapper.id_check" , id) == 0 ? true : false ;
+		 
 	}
 
 

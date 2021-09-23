@@ -21,7 +21,7 @@ import member.MemberVO;
 /**
  * Servlet implementation class MemberController
  */
-@WebServlet(urlPatterns = {    "/login"    , "/iotlogin" , "/logout" , "/join"       })
+@WebServlet(urlPatterns = {    "/login"    , "/iotlogin" , "/logout" , "/join"  ,"/id_check"     })
 public class MemberController extends HttpServlet {
 //login = login.jsp 연결용
 //iotlogin = 실제 db연동 로그인처리용
@@ -42,11 +42,21 @@ public class MemberController extends HttpServlet {
 			}else if(req.getServletPath().equals("/join")) {
 				rd = req.getRequestDispatcher("member/join.jsp");
 				rd.forward(req, res);
+			}else if(req.getServletPath().equals("/id_check")) {
+				id_check(req, res);
 			}
 			
 		
 	}
 	MemberServiceImpl service = new MemberServiceImpl();
+	private void id_check(HttpServletRequest req, HttpServletResponse res) throws IOException {
+		String id = req.getParameter("id");
+		boolean result = service.member_id_check(id);
+		PrintWriter out = res.getWriter();
+		out.print(result);
+		//--?
+	}
+	
 	private void login(HttpServletRequest req, HttpServletResponse res) throws IOException {
 		//Mybatis를 이용해서 로그인을 처리할수있는 로직을 호출.
 		HashMap<String, String> map = new HashMap<>();
