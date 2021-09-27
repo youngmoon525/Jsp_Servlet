@@ -12,4 +12,10 @@
   <select id="exam" resultType="exam.ExamVO">
   		select * from exam
   </select>
+  <insert id="join">
+  	insert into jsp_member ( name , id  , pw , email , gender)
+  					values ( #{name} , #{id} , #{pw} , #{email} , #{gender})
+  					
+  					
+  </insert>
 </mapper>

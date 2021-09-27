@@ -17,5 +17,6 @@
   </environments>
   <mappers>
     <mapper resource="sqlmap/member-mapper.xml"/>
+    <mapper resource="sqlmap/customer-mapper.xml"/>
   </mappers>
 </configuration>

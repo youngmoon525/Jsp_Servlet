@@ -1,15 +1,14 @@
-package member;
+package customer;
 
 import java.io.InputStream;
-import java.util.HashMap;
+import java.util.List;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
-//실제 작업을 하기위한 공간.
-public class MemberDAO implements MemberService {
+public class CustomerDAO implements CustomerService {
 	private static SqlSessionFactory sqlmapper;//연결 객체 |conn
 	private static SqlSession sql; //전송과 결과를 담당하는 객체 |ps , rs
 	static {
@@ -22,45 +21,46 @@ public class MemberDAO implements MemberService {
 			System.out.println("마이바티스 SqlSessionFactory 여기 에러");
 		}
 	}
-	
 	@Override
-	public boolean member_join(MemberVO vo) {
+	public void customer_insert(CustomerVO vo) {
 		sql = sqlmapper.openSession();
-		int result = sql.insert("member.mapper.join" , vo);
-		System.out.println(result);
+		int result = sql.insert("customer.mapper.new", vo);
 		sql.commit();
-		return result == 1 ? true : false;
+		System.out.println(result);
+		
 	}
 
 	@Override
-	public MemberVO member_login(HashMap<String, String> map) {
+	public List<CustomerVO> customer_list() {
 		sql = sqlmapper.openSession();
-//		MemberVO vo = sql.selectOne("",map);
-//		return vo; test.selectone
-		return sql.selectOne("member.mapper.login",map);
+		List<CustomerVO> list = sql.selectList("customer.mapper.list");
+		return list;
 	}
 
 	@Override
-	public boolean member_update(MemberVO vo) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean member_delete(String id) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean member_id_check(String id) {
+	public CustomerVO customer_detail(int id) {
 		sql = sqlmapper.openSession();
-		return (Integer) sql.selectOne("member.mapper.id_check" , id) == 0 ? true : false ;
-		 
+		CustomerVO vo = sql.selectOne("customer.mapper.detail" , id);
+		return vo;
 	}
 
+	@Override
+	public void customer_update(CustomerVO vo) {
+		// TODO Auto-generated method stub
+		
+	}
 
+	@Override
+	public void customer_delete(int id) {
+		// TODO Auto-generated method stub
+		
+	}
 
-	
+	@Override
+	public int customer_test() {
+		sql = sqlmapper.openSession();
+		int result = sql.selectOne("customer.mapper.test");
+		return result;
+	}
 
 }

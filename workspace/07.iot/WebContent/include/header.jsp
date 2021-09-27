@@ -42,7 +42,7 @@
 				<li class="nav-item mx-0 mx-lg-1"><a
 					class="nav-link py-3 px-0 px-lg-3 rounded" href="exam">시험보기</a></li>
 				<li class="nav-item mx-0 mx-lg-1"><a
-					class="nav-link py-3 px-0 px-lg-3 rounded" href="#about">About</a></li>
+					class="nav-link py-3 px-0 px-lg-3 rounded" href="list.cu">고객관리</a></li>
 				<li class="nav-item mx-0 mx-lg-1"><a
 					class="nav-link py-3 px-0 px-lg-3 rounded" href="#contact">Contact</a></li>
 				<li class="nav-item mx-0 mx-lg-1">

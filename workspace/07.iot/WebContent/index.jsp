@@ -24,7 +24,6 @@
 		<p class="masthead-subheading font-weight-light mb-0">서블릿 JSP
 			공부중입니다.</p>
 	</div>
-        
         <!--우리가 작업할 공간.  -->
         
   		<%@ include file="include/footer.jsp" %>

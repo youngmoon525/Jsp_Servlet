@@ -21,7 +21,7 @@ import member.MemberVO;
 /**
  * Servlet implementation class MemberController
  */
-@WebServlet(urlPatterns = {    "/login"    , "/iotlogin" , "/logout" , "/join"  ,"/id_check"     })
+@WebServlet(urlPatterns = {    "/login"    , "/iotlogin" , "/logout" , "/join"  ,"/id_check" ,"/iotjoin"    })
 public class MemberController extends HttpServlet {
 //login = login.jsp 연결용
 //iotlogin = 실제 db연동 로그인처리용
@@ -44,11 +44,30 @@ public class MemberController extends HttpServlet {
 				rd.forward(req, res);
 			}else if(req.getServletPath().equals("/id_check")) {
 				id_check(req, res);
+			}else if(req.getServletPath().equals("/iotjoin")) {
+				req.setCharacterEncoding("UTF-8"); 
+				join(req, res);
 			}
 			
 		
 	}
 	MemberServiceImpl service = new MemberServiceImpl();
+	private void join(HttpServletRequest req, HttpServletResponse res) throws IOException {
+
+		MemberVO vo = new MemberVO();
+		vo.setName(req.getParameter("name"));
+		vo.setId(req.getParameter("id"));
+		vo.setEmail(req.getParameter("email"));
+		vo.setPw(req.getParameter("pw"));
+		vo.setGender(req.getParameter("gender"));
+		boolean result = service.member_join(vo);
+		res.sendRedirect(req.getContextPath() + "/home");
+		
+		
+	
+		
+	}
+	
 	private void id_check(HttpServletRequest req, HttpServletResponse res) throws IOException {
 		String id = req.getParameter("id");
 		boolean result = service.member_id_check(id);
