@@ -44,7 +44,7 @@
 				<li class="nav-item mx-0 mx-lg-1"><a
 					class="nav-link py-3 px-0 px-lg-3 rounded" href="list.cu">고객관리</a></li>
 				<li class="nav-item mx-0 mx-lg-1"><a
-					class="nav-link py-3 px-0 px-lg-3 rounded" href="#contact">Contact</a></li>
+					class="nav-link py-3 px-0 px-lg-3 rounded" href="list.bo">게시판</a></li>
 				<li class="nav-item mx-0 mx-lg-1">
 				<c:if test="${empty logininfo}">
 				<a class="nav-link py-3 px-0 px-lg-3 rounded" href="login">로그인</a>

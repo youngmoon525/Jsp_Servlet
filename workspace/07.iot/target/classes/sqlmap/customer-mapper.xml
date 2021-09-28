@@ -18,4 +18,15 @@
 		insert into customer(name , gender , email , phone)
 			values (#{name} , #{gender} , #{email} , #{phone})
 	</insert>
+	<update id="update">
+		update customer
+		set name = #{name},
+			gender = #{gender},
+			email = #{email},
+			phone = #{phone}
+		where id = #{id}
+	</update>
+	<delete id="delete">
+		delete from customer where id = #{id}
+	</delete>
 </mapper>

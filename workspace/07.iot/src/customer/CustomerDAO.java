@@ -46,13 +46,19 @@ public class CustomerDAO implements CustomerService {
 
 	@Override
 	public void customer_update(CustomerVO vo) {
-		// TODO Auto-generated method stub
+		sql = sqlmapper.openSession();
+		int result = sql.update("customer.mapper.update" , vo);
+		sql.commit();
+		System.out.println(result);
 		
 	}
 
 	@Override
 	public void customer_delete(int id) {
-		// TODO Auto-generated method stub
+		sql = sqlmapper.openSession();
+		int result = sql.delete("customer.mapper.delete" ,id);
+		sql.commit();
+		System.out.println(result);
 		
 	}
 
