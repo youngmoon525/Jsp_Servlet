@@ -5,7 +5,7 @@ public class PageVO {
 	private int totalPage; // 총페이지수
 	private int totalBlock; // 총블록수
 	private int pageList = 10 ; //페이지당 보여질 목록의 수
-	private int blockPage = 10 ; //블럭당 보여질 페이지의 수
+	private int blockPage = 5 ; //블럭당 보여질 페이지의 수
 	private int curPage; // 현재 페이지
 	private int beginList , endList; // 각 페이지에 보여질 목록번호
 	private int curBlock; // 현재 블럭

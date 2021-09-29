@@ -5,9 +5,9 @@ import java.util.List;
 
 public class BoardServiceImpl implements BoardService {
 	BoardDAO dao = new BoardDAO();
+	
 	@Override
 	public List<BoardVO> board_list() {
-		// dao.
 		return dao.board_list();
 	}
 

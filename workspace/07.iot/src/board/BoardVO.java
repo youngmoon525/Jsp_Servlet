@@ -3,6 +3,13 @@ package board;
 import java.sql.Date;
 
 public class BoardVO {
+	private int no;
+	public int getNo() {
+		return no;
+	}
+	public void setNo(int no) {
+		this.no = no;
+	}
 	private int id			  ;
 	private String title		;
 	private String content		;

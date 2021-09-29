@@ -18,5 +18,6 @@
   <mappers>
     <mapper resource="sqlmap/member-mapper.xml"/>
     <mapper resource="sqlmap/customer-mapper.xml"/>
+    <mapper resource="sqlmap/board-mapper.xml"/>
   </mappers>
 </configuration>
