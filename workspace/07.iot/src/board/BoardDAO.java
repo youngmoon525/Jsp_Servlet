@@ -26,7 +26,6 @@ public class BoardDAO implements BoardService {
 	}
 	@Override
 	public List<BoardVO> board_list() {
-		sql = sqlmapper.openSession();
 		List<BoardVO> list = sql.selectList("board.mapper.list");
 		return list;
 	}
@@ -35,9 +34,10 @@ public class BoardDAO implements BoardService {
 	public BoardPage board_list(BoardPage page) {
 		//총 글 건수를 가지고와서 세팅함.
 		sql = sqlmapper.openSession();
-		page.setTotalList( sql.selectOne("board.mapper.totalList") );
+		page.setTotalList( sql.selectOne("board.mapper.totalList" , page) );
 		List<BoardVO> list = sql.selectList("board.mapper.list" , page);
 		page.setList(list );
+		sql.close();
 		return page;
 	}
 

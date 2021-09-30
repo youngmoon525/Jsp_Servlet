@@ -5,13 +5,12 @@ public class PageVO {
 	private int totalPage; // 총페이지수
 	private int totalBlock; // 총블록수
 	private int pageList = 10 ; //페이지당 보여질 목록의 수
-	private int blockPage = 5 ; //블럭당 보여질 페이지의 수
+	private int blockPage = 10 ; //블럭당 보여질 페이지의 수
 	private int curPage; // 현재 페이지
 	private int beginList , endList; // 각 페이지에 보여질 목록번호
 	private int curBlock; // 현재 블럭
 	private int beginPage , endPage; // 각 블럭에 보여질 페이지 번호
-	/////===================///
-	private String serach , keyword; //검색조건 , 검색어
+	private String search , keyword; //검색조건 , 검색어
 	
 	
 	public int getTotalList() {
@@ -28,11 +27,17 @@ public class PageVO {
 		
 		//현재페이지에 따라 보여질 글의 시작/끝목록번호가 결정이된다.
 		//각 페이지의 끝 목록번호 : 총 목록수 - (페이지번호-1) * 페이지당 보여질 목록수
-		endList = totalList - (curPage - 1) * pageList;
+		endList = totalList - (curPage - 1) * pageList;//10
+		
+		//endList = curPage * pageList;//10;//1 * 10 = 10 , 2 * 10 = 20 , 3 * 10 = 30;
+		//beginList = ((curPage - 1) * pageList) + 1;//1 ,        ,          11 ,          21 ;
+		//↑1번부터 글이 보일수있게 수정한 부분
+		
 		//각 페이지의 시작 목록번호 : 끝 목록번호 - (페이지당 보여질 목록수-1)
-		beginList = endList - ( pageList - 1);
+		beginList = endList - ( pageList - 1);//1
 			
 		//각 블럭에 보여질 페이지 번호는 현재 블럭에 따라 결정이 된다.
+		//curBlock <= 1/ 10
 		curBlock = curPage / blockPage;
 		if ( curPage % blockPage > 0) ++ curBlock;
 		
@@ -107,17 +112,18 @@ public class PageVO {
 	public void setEndPage(int endPage) {
 		this.endPage = endPage;
 	}
-	public String getSerach() {
-		return serach;
-	}
-	public void setSerach(String serach) {
-		this.serach = serach;
-	}
+	
 	public String getKeyword() {
 		return keyword;
 	}
 	public void setKeyword(String keyword) {
 		this.keyword = keyword;
+	}
+	public String getSearch() {
+		return search;
+	}
+	public void setSearch(String search) {
+		this.search = search;
 	}
 	
 	

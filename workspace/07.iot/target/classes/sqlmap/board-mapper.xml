@@ -6,12 +6,29 @@
 	<select id="list" resultType="board.BoardVO">
 		select * from
 		(select rownum no , b.*
-		from (select * from jsp_board ) b
+		from (select * from jsp_board <include refid="search_where"/> ) b 
 		order by no desc)
 		where no between #{beginList} and #{endList} 
 	</select>
 	<select id="totalList" resultType="Integer">
 		select count(*) as totalList
 		from jsp_board
+		<include refid="search_where"/>
 	</select>
+	<!-- sql을 따로 만들고 조건에 따라서 where조건이 바뀔수있게 
+		mybatis mapper에서는 include기능을 사용해서 처리할수있다.
+		$<== 싱글코테이션 없음 컬럼 ex) title
+		#<== 싱글코테이션 있음  값  ex) 'title'
+		-->
+	<sql id="search_where">
+		<if test=" search=='title' or search=='content' or search=='writer'"  >
+			where ${search} like '%'|| #{keyword} ||'%'
+		</if>
+		<if test=" search=='all'">
+			where title like '%'|| #{keyword} ||'%'
+			or  content like '%'|| #{keyword} ||'%'
+			or  writer  like '%'|| #{keyword} ||'%'
+			<!--in (select id from jsp_member where name like '%'||#{keyword}||'%'  -->
+		</if>
+	</sql>
 </mapper>

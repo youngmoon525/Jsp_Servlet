@@ -35,8 +35,12 @@ public class BoardController extends HttpServlet {
 			//데이터를 챙김↑
 			//req.setAttribute("list",boService.board_list());
 			//↑일반적인 데이터 조회만 함 페이징처리(게시판처리 x)
-			int curPage = req.getParameter("curPage") == null ? 1 : Integer.parseInt(req.getParameter("curPage")+"");
+			System.out.println(req.getParameter("search"));
+			System.out.println(req.getParameter("keyword"));
 			
+			int curPage = req.getParameter("curPage") == null ? 1 : Integer.parseInt(req.getParameter("curPage")+"");
+			page.setKeyword(req.getParameter("keyword"));
+			page.setSearch(req.getParameter("search"));
 			page.setCurPage(curPage);//페이지전환을 위한 요청이 들어오면 들어온 데이터로 페이지를 바꿈
 			req.setAttribute("page", boService.board_list(page) ) ;//Page에 정보들을 전부 가지고있고 + list
 			

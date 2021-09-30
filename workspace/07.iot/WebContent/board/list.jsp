@@ -55,6 +55,20 @@ select {
 	<!-- form태그를 이용해서 검색조건과 검색어를 전송할수있는처리.  -->
 	<form action="list.bo" method="post">
 		<input type="hidden" name="curPage" value="1">
+		<div id='list-top'>
+			<ul>
+				<li>
+					<select name=search >
+						<option value="all" ${page.search eq 'all' ? 'selected' : ''}>전체</option>
+						<option value="title" ${page.search eq 'title' ? 'selected' : ''}>제목</option>
+						<option value="content" ${page.search eq 'content' ? 'selected' : ''}>내용</option>
+						<option value="writer" ${page.search eq 'writer' ? 'selected' : ''}>작성자</option>
+					</select>
+				</li>
+				<li><input value="${page.keyword }" type="text" name="keyword" ></li>
+				<li><a class="btn-fill" onclick="$('form').submit();">검색 </a></li>
+			</ul>	
+		</div>
 	</form>
 	<c:if test="${page eq null }">
 		<!-- ==  -->
@@ -84,16 +98,33 @@ select {
 		</c:forEach>
 	</table>
 	<!--공통으로 사용할수있음 pageVO (common)   -->
-	<!-- 글건수가많으면 처음 또는 블럭의 이전 처리를 기능  -->
+	<!-- 글건수가많으면 처음 또는 블럭의 이전 처리를 기능  -->]
 	<div class="page_list" style="text-align: center;">
+	<!-- 이전/처음  -->
+
+		<c:if test="${page.curBlock gt 1 }">
+			<a class="page_first" title="처음" onclick="go_page(1)">처음</a>
+			<a class="page_prev" title="이전" 
+			onclick="go_page(${page.beginPage - page.blockPage})">
+			이전</a>
+		</c:if>
+	
 		<c:forEach begin="${page.beginPage}" end="${page.endPage}" var="no">
+			<!-- 현재 페이지   o-->
 			<c:if test="${no eq page.curPage}">
 				<span class="page_on">${no}</span>
 			</c:if>
+			<!--현재 페이지 x  -->
 			<c:if test="${no ne page.curPage}">
 				<span class="page_off" onclick="go_page(${no})">${no}</span>
 			</c:if>
 		</c:forEach>
+		
+		<!-- 다음/마지막  -->
+		<c:if test="${page.curBlock lt page.totalBlock}">
+			<a class="page_next" title='다음' onclick="go_page(${page.endPage+1})">다음</a>
+			<a class="page_last" title='마지막' onclick="go_page(${page.totalPage})">마지막</a>
+		</c:if>
 	</div>
 	<script type="text/javascript">
 	function go_page(page) {
