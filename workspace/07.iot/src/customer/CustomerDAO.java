@@ -8,6 +8,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
+import board.BoardVO;
+
 public class CustomerDAO implements CustomerService {
 	private static SqlSessionFactory sqlmapper;//연결 객체 |conn
 	private static SqlSession sql; //전송과 결과를 담당하는 객체 |ps , rs
@@ -67,6 +69,16 @@ public class CustomerDAO implements CustomerService {
 		sql = sqlmapper.openSession();
 		int result = sql.selectOne("customer.mapper.test");
 		return result;
+	}
+
+	@Override
+	public CustomerPage customer_list(CustomerPage page) {
+		sql = sqlmapper.openSession();
+		page.setTotalList( sql.selectOne("customer.mapper.totalList" , page) );
+		List<CustomerVO> list = sql.selectList("customer.mapper.list" , page);
+		page.setList(list );
+		sql.close();
+		return page;
 	}
 
 }

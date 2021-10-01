@@ -6,10 +6,7 @@ public class CustomerServiceImpl implements CustomerService{
 	CustomerDAO dao = new CustomerDAO(); 
 
 
-	@Override
-	public List<CustomerVO> customer_list() {
-		return dao.customer_list();
-	}
+	
 
 	@Override
 	public CustomerVO customer_detail(int id) {
@@ -38,6 +35,15 @@ public class CustomerServiceImpl implements CustomerService{
 	public int customer_test() {
 		
 		return dao.customer_test();
+	}
+	@Override
+	public List<CustomerVO> customer_list() {
+		return dao.customer_list();
+	}
+	@Override
+	public CustomerPage customer_list(CustomerPage page) {
+		// TODO Auto-generated method stub
+		return dao.customer_list(page);
 	}
 
 

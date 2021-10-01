@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import customer.CustomerPage;
 import customer.CustomerServiceImpl;
 import customer.CustomerVO;
 
@@ -18,6 +19,7 @@ import customer.CustomerVO;
 @WebServlet("*.cu")
 public class CustomerController extends HttpServlet {
 	CustomerServiceImpl cusService = new CustomerServiceImpl();
+	CustomerPage page = new CustomerPage();
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		//System.out.println(cusService.customer_test() ) ;
@@ -26,7 +28,12 @@ public class CustomerController extends HttpServlet {
 		RequestDispatcher rd = req.getRequestDispatcher("error/404.jsp");
 		if(url.equals("/list.cu")) {
 			rd = req.getRequestDispatcher("customer/list.jsp");
-			req.setAttribute("list", cusService.customer_list());
+			//page.setCurPage(1);초기 테스트용.
+			page.setKeyword(req.getParameter("keyword"));
+			page.setSearch(req.getParameter("search"));
+			int curPage = req.getParameter("curPage") == null ? 1 : Integer.parseInt(req.getParameter("curPage")+"");
+			page.setCurPage(curPage);
+			req.setAttribute("page", cusService.customer_list(page));
 			rd.forward(req, resp);
 		}else if(url.equals("/detail.cu")) {
 			rd = req.getRequestDispatcher("customer/detail.jsp");

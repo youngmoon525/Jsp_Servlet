@@ -46,6 +46,17 @@ a.btn-fill {
 select {
 	height: 32px;
 }
+ul{
+	list-style: none;
+	padding: 0;
+}
+#list-top{ padding: 20px 10%; height: 36px; }
+#list-top ul {margin: 0; display: flex;}
+#list-top ul li:not(:first-child){ margin-left: 3px; }
+#list-top ul li * { vertical-align: middle; }
+#list-top ul:first-child{ float: left; }
+#list-top ul:last-child{ float: right; }
+
 </style>
 </head>
 <body>
@@ -99,40 +110,7 @@ select {
 	</table>
 	<!--공통으로 사용할수있음 pageVO (common)   -->
 	<!-- 글건수가많으면 처음 또는 블럭의 이전 처리를 기능  -->]
-	<div class="page_list" style="text-align: center;">
-	<!-- 이전/처음  -->
-
-		<c:if test="${page.curBlock gt 1 }">
-			<a class="page_first" title="처음" onclick="go_page(1)">처음</a>
-			<a class="page_prev" title="이전" 
-			onclick="go_page(${page.beginPage - page.blockPage})">
-			이전</a>
-		</c:if>
-	
-		<c:forEach begin="${page.beginPage}" end="${page.endPage}" var="no">
-			<!-- 현재 페이지   o-->
-			<c:if test="${no eq page.curPage}">
-				<span class="page_on">${no}</span>
-			</c:if>
-			<!--현재 페이지 x  -->
-			<c:if test="${no ne page.curPage}">
-				<span class="page_off" onclick="go_page(${no})">${no}</span>
-			</c:if>
-		</c:forEach>
-		
-		<!-- 다음/마지막  -->
-		<c:if test="${page.curBlock lt page.totalBlock}">
-			<a class="page_next" title='다음' onclick="go_page(${page.endPage+1})">다음</a>
-			<a class="page_last" title='마지막' onclick="go_page(${page.totalPage})">마지막</a>
-		</c:if>
-	</div>
-	<script type="text/javascript">
-	function go_page(page) {
-		$('[name=curPage]').val (page);
-		$('form').submit();
-	};
-	</script>
-
+	<jsp:include page="/include/page.jsp"/>
 	<!-- 글건수가많으면 마지막 또는 블럭의 다음 처리를 기능  -->
 
 	<%@ include file="/include/footer.jsp"%>
